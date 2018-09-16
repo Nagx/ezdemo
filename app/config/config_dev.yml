@@ -42,9 +42,4 @@ monolog:
 swiftmailer:
     delivery_addresses: ['k.javazzo@gmail.com']
     transport: gmail
-#    encryption: ssl
-#    auth_mode: login
-#    host: smtp.gmail.com
-#    username: 'unlike.naga@gmail.com'
-#    password: 'Naga2909'
     spool: { type: memory }
