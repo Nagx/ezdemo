@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ app.request.locale }}">
+    <head>
+        {% block seo_metas %}
+            {% if location is defined and not location.isDraft %}
+                {% include "NovaeZSEOBundle::seometas_head.html.twig" %}
+            {% endif %}
+        {% endblock %}
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
+
+        {% block page_head %}
+            <title>{{ title|default('Home') }}</title>
+        {% endblock %}
+
+        {% block head_styles %}
+            {% stylesheets filter='scssphp'
+                'assets/scss/demo.scss'
+            %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+
+    </head>
+    <body>
+        {% block header %}
+            {{ render_esi(controller('app.controller.menu:getChildNodesAction', {
+                template: '@ezdesign/layout/header.html.twig',
+                pathString: location is defined ? location.pathString
+            })) }}
+        {% endblock %}
+
+        {% block content %}
+        {% endblock %}
+
+        {% block footer %}
+            {{ render_esi(controller('app.controller.menu:getChildNodesAction', {
+                template: '@ezdesign/layout/footer.html.twig',
+                pathString: location is defined ? location.pathString
+            })) }}
+        {% endblock %}
+
+        {% javascripts
+            'bundles/ezplatformadminuiassets/vendors/jquery/dist/jquery.min.js'
+            'bundles/ezplatformadminuiassets/vendors/popper.js/dist/umd/popper.min.js'
+            'bundles/ezplatformadminuiassets/vendors/bootstrap/dist/js/bootstrap.min.js'
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
