@@ -1,0 +1,65 @@
+{% extends '@ezdesign/pagelayout.html.twig' %}
+
+{% block page_head %}
+    <title>{{ title|default('Contact') }}</title>
+{% endblock %}
+
+{% block content %}
+    {% for label, flashes in app.session.flashbag.all %}
+        {% for flash in flashes %}
+            <div class="alert alert-{{ label }}">
+                {{ flash }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 form">
+                <!-- TODO make translation -->
+                {{ form_start(contact_form) }}
+                <div class="form-group">
+                    {{ form_label(contact_form.name, 'Name'|trans, {
+                        label_attr: {
+                            class: 'text-about'
+                        }
+                    }) }}
+                    {{ form_widget(contact_form.name, {
+                        attr: {
+                            class: 'form-control',
+                            readonly: 'readonly'
+                        }
+                    }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(contact_form.email, 'E-mail'|trans, {
+                        label_attr: {
+                            class: 'text-about'
+                        }
+                    }) }}
+                    {{ form_widget(contact_form.email, {
+                        attr: {
+                            class: 'form-control',
+                            readonly: 'readonly'
+                        }
+                    }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(contact_form.message, 'Anything you want to add:'|trans, {
+                        label_attr: {
+                            class: 'text-about'
+                        }
+                    }) }}
+                    {{ form_widget(contact_form.message, {
+                        attr: {
+                            placeholder: 'Your message'|trans,
+                            class: 'form-control'
+                        }
+                    }) }}
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg">{{ 'Send'|trans }}</button>
+
+                {{ form_end(contact_form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
