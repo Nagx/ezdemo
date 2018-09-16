@@ -1,4 +1,4 @@
-CREATE TABLE `ezdemo`.`mail_contact` (
+CREATE TABLE `mail_contact` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL DEFAULT '',
   `email` VARCHAR(255) NOT NULL DEFAULT '',
