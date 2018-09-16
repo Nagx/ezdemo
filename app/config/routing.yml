@@ -53,3 +53,11 @@ platform1_admin_route:
     defaults:
         path: /admin
         permanent: true
+
+user_profile:
+    path: /profile
+    defaults: { _controller: AppBundle:UserProfile:userProfile }
+
+user_contact:
+    path: /profile/contact
+    defaults: { _controller: AppBundle:UserProfile:contact }

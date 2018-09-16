@@ -37,6 +37,7 @@
                 {% if app.user %}
                     {% set user = app.user.getAPIUser().content %}
                     <li class="nav-item username">{{ ez_content_name(user) }}</li>
+                    <li class="nav-item username"><a href="{{ path('user_profile') }}">my profile</a></li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('logout') }}" title="{{ 'logout'|trans }}">{{ 'logout'|trans }}</a>
                     </li>

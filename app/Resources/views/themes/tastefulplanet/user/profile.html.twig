@@ -1,0 +1,31 @@
+{% extends '@ezdesign/pagelayout.html.twig' %}
+
+{% block page_head %}
+    <title>{{ title|default('Profile') }}</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 form">
+                <!-- TODO make translation -->
+                <div class="form-group">
+                    <span class="text-about">{{ 'login'|trans }}</span>
+                    <span class="form-control">{{ user.aPIUser.login }}</span>
+                    <span class="text-about">{{ 'email'|trans }}</span>
+                    <span class="form-control">{{ user.aPIUser.email }}</span>
+                    {% for field in user.aPIUser.fields() %}
+                        {% if field.value is not iterable and field.value is not empty %}
+                            <span class="text-about">{{ field.fieldDefIdentifier|trans }}</span>
+                            <span class="form-control">{{ field.value }}</span>
+                        {% endif %}
+                    {% endfor %}
+                    </br>
+                    <span>
+                        <a href="{{ path('user_contact') }}" class="btn btn-primary">{{ 'contact'|trans }}</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
