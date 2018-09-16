@@ -4,8 +4,6 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\MailContact;
 use AppBundle\Form\Type\MailContactType;
-use AppBundle\Mail\Sender;
-use AppBundle\Model\Contact;
 use eZ\Publish\Core\MVC\Symfony\Security\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
