@@ -53,6 +53,19 @@ When the database is ready, open your `<ezplatform>/app/config/parameters.yml`, 
 _Note: If your email account require the two steps authentication, an error will come._
 _Make a new address for this demo._
 
+## New or Edited files
+- app/config/routing.yml
+- app/config/security.yml
+- app/Resources/views/themes/tastefulplanet/user/profile.html.twig
+- app/Resources/views/themes/tastefulplanet/user/contact.html.twig
+- src/AppBundle/Controller/UserProfileController.php
+- src/AppBundle/Entity/MailContact.php
+- src/AppBundle/Form/Type/MailContactType.php
+- src/AppBundle/MigrationVersions/20180916205136_mysql_create-mail-contact-table.sql
+- src/AppBundle/Repository/MailContactRepository.php
+- src/AppBundle/Resources/config/doctrine/MailContact.orm.yml
+
+
 ## Issue tracker
 - missing translations
 - user_id not save when email sent
